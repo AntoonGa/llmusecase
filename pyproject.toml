@@ -1,0 +1,102 @@
+[project]
+name = "PigmentCaseStudy"
+version = "0.1.0"
+description = "Using LLM to read and manipulate tabular and text data."
+readme = "README.md"
+
+requires-python = ">=3.11, <3.12"
+
+
+#######################################
+##               RUFF
+#######################################
+[tool.ruff]
+line-length = 100
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    "*.html",
+    "*.toml",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".env",
+    ".git",
+    ".git-rewrite",
+    ".gitignore",
+    ".hg",
+    ".ipynb",
+    ".json",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "build_push_docker_ci_env.py",
+    "data/*.*",
+    "dist",
+    "docs/*.*",
+    "node_modules",
+    "public/*.*",
+    "tests_*.py",
+    "venv",
+]
+
+target-version = "py311"
+
+[tool.ruff.lint]
+# All rules are listed here : https://docs.astral.sh/ruff/rules/#pyflakes-f
+select = ["ALL"]
+ignore = [
+    # PURPOSELY DISABLED:
+    "ANN401", # prevent the usage of "Any" typed hint which is usefull for POCs
+    "ANN002", # missing type annotation for *arg
+    "ANN003", # missing type annotation for **kwarg
+    "ANN101", # missing type annotation for `self` in method
+    "ANN102", # missing type annotation for `cls` in classmethod
+    "BLE", # ignore all blind exception issues
+    "D107", # missing docstring in `__init__`
+    "D415", # first line should end with a period, question mark, or exclamation point
+    "FBT", # this limits the use of default boolean arguments in function definitions
+    "FIX", # force issue resolving (in todos)
+    "PTH", # proper use of PATH package
+    "RET504", # prevents assignment of a variable before its return. Ignore for understandable code
+    "SIM118", # this prevents the use of keys() in dictionaries. But forgets pd.Series have keys
+    "TD003", # force issue link in todos
+    "UP007", # use `X | Y` for type annotations: issues with the Optional module of type package
+    "COM812", # conflict with black formatter
+    "ISC001", # conflict with black formatter
+    # TO SOLVE:
+    "PLR0913", # too many arguments in function definition (6 > 5)
+    "NPY002" # Replace legacy `np.random.rand` call with `np.random.Generator`
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 100
+
+[tool.ruff.lint.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"

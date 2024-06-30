@@ -1,0 +1,35 @@
+# precommit hook: runs this pipeline when trying to commit (local only)
+# Checks for conventional commit style message
+repos:
+-   repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.1.0
+    hooks:
+    -   id: conventional-pre-commit
+        stages: [commit-msg]
+        args: []
+
+# emtpy notebook cells
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.7.1
+  hooks:
+    - id: nbstripout
+
+# common precommit hooks
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+#    -   id: check-added-large-files
+    -   id: check-case-conflict
+    -   id: check-docstring-first
+    -   id: check-merge-conflict
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+
+# lint and format using ruff
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.6
+    hooks:
+    -   id: ruff # run the linter
+        types_or: [python]
+        args: [ --fix ]
+    -   id: ruff-format # run the formatter

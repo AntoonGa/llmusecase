@@ -1,0 +1,40 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "request_data",
+        "description": "API to request data. Data is a selection of columns in a pandas dataframe. Rows are monthly time_stamps in format yyyy-mm-dd. Table must be requested using a string. Rows must be requested as a list of string. Use ['all'] to request all columns. Dates must be requested using a 'yyyy-mm-dd' string.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "table_name": {
+              "type": "string",
+              "description": "Name of the requested dataframe. Only use dataframe available in the database. Type str. "
+            },
+
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "description": "Column name. Type str. Columns must exist in the dataframe."
+              },
+            "description": "List of columns to request. Use ['all'] to request all columns. Only use columns available in the dataframe. Type list[str]."
+            },
+
+            "start_date": {
+              "type": "string",
+              "description": "Starting date of the requested dataframe. Date correspond to rows (index). Use '2022-12-01 if start date not detailed in the query. Type str, Format 'yyyy-mm-dd'."
+            },
+
+            "end_date": {
+              "type": "string",
+              "description": "End date of the requested dataframe. Date correspond to rows (index). Use '2023-12-31' if end date not detailed in the query. Type str, Format 'yyyy-mm-dd'."
+            }
+          },
+          "required": ["table_name", "columns", "start_date", "end_date"]
+        }
+      }
+    }
+  ]
+}

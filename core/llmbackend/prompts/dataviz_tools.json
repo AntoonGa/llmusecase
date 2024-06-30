@@ -1,0 +1,61 @@
+{
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "plot_timeseries",
+        "description": "Plot a time series (value vs time_stamps) on a chart. Use this function to display the data and find trends in the data. In general this visualisation is usefull to see the evolution of the data. e.g. 'I need to see the evolution of my data'. e.g. 'Show me the internal revenue from Jan 2021 to Dec 2021'. e.g. 'Display the overall cost of business starting Feb 2022",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string",
+              "description": "Sequence of values to plot (pd.Dataframe). Columns are the timeseries. Index is the time_stamps"
+            }
+          },
+          "required": [
+            "data"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "display_histogram",
+        "description": "Create a histogram of a list of values. Use this function to display histogram of the data. Histograms are usefull to find the distribution of the data. e.g. 'What is the distribution of the revenue from Jan 2020 to Dec 2021'. e.g. 'Show me the costs histogram from Jan 2021 to Dec 2021'",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string",
+              "description": "Sequence of values to plot (pd.Dataframe). Columns are the numbers. Index is the time_stamps"
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "display_pie_chart",
+        "description": "Create a pie chart of a list of values. Use this function to display pie chart of the data. Pie charts are usefull to find the compositions of the data. e.g. 'What is the composition of the external costs from Jan 2020 to Dec 2021'. e.g. 'Show me the revenue composition from Jan 2021 to Dec 2021', A pie chart should never include the total value.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string",
+              "description": "Sequence of values to plot (pd.Dataframe). Columns are the composing values. Index is the time_stamps. Always omit the total columns."
+            }
+          }
+        },
+        "required": [
+          "data"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+/.pytest_cache/
+/.ruff_cache/
+/.todo/
+.todo/
+.idea/
+.legacy/
+**/__pycache__/
+/.legacy/
+qodana.yaml
+secrets.env
