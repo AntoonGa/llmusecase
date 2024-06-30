@@ -8,7 +8,7 @@ data (e.g, forecasting, data visualization...).
 This agent will then choose which action to undertake and call the relevent services.
 
 The services are implemented "as if" they were an external API.
-My hope being that it would somewhat feel like a POC of the current Pigment's system.
+My hope being that it would somewhat feel like a POC what I've been shown during our discussions.
 
 
 
@@ -38,7 +38,7 @@ ___
 ## Where to start ? How to use this repo ?
 Clone this repo:
 ```
-git clone XXX
+git clone https://github.com/AntoonGa/llmusecase.git
 ```
 Create a ```Python 3.11``` environement and install the project's dependencies by running:
 ```
@@ -83,5 +83,5 @@ Please install and set Ruff as your IDE formatter to comply with the repo's stan
 ## Secrets
 LLM/Embedders API-keys must be stored in a ```core/settings/secrets.env``` file.
 This file is not pushed in version control (git-ignored).
-Please ask Antoine Garçon for that file if you wish to use those APIs.
+Please ask AG for that file if you wish to use those APIs.
 If you wish to use your own secrets an example is provided.
